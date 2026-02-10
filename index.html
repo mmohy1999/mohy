@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mohamed Mohy Portfolio</title>
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body class="bg-theme text-theme">
+    <div id="mobile-menu" class="fixed inset-0 z-50 hidden">
+      <div id="menu-overlay" class="absolute inset-0 menu-overlay"></div>
+      <div
+        id="mobile-panel"
+        class="absolute top-0 right-0 h-full w-72 surface p-6 flex flex-col gap-6 translate-x-full transition-transform duration-200"
+      >
+        <div class="flex items-center justify-between">
+          <p class="font-semibold" data-brand>Mohamed Mohy</p>
+          <button class="btn-icon" id="menu-close" aria-label="Close menu">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 6 6 18"></path>
+              <path d="M6 6 18 18"></path>
+            </svg>
+          </button>
+        </div>
+        <nav class="flex flex-col gap-2">
+          <a class="nav-link" data-nav="home" href="#home" data-i18n="navHome">Home</a>
+          <a class="nav-link" data-nav="about" href="#about" data-i18n="navAbout">About</a>
+          <a class="nav-link" data-nav="skills" href="#skills" data-i18n="navSkills">Skills</a>
+          <a
+            class="nav-link"
+            data-nav="experience"
+            href="#experience"
+            data-i18n="navExperience"
+            >Experience</a
+          >
+          <a class="nav-link" data-nav="projects" href="#projects" data-i18n="navProjects"
+            >Projects</a
+          >
+          <a class="nav-link" data-nav="contact" href="#contact" data-i18n="navContact"
+            >Contact</a
+          >
+        </nav>
+        <div class="border-t border-divider pt-4 flex flex-col gap-4">
+          <div class="flex items-center justify-between text-sm">
+            <span data-i18n="languageLabel">Language</span>
+            <button class="text-accent font-semibold" data-lang-toggle>Arabic</button>
+          </div>
+          <div class="flex items-center justify-between text-sm">
+            <span data-i18n="themeLabel">Theme</span>
+            <button class="btn-icon" data-theme-toggle aria-label="Toggle theme"></button>
+          </div>
+          <a class="btn btn-accent w-full" data-download-cv data-i18n="downloadCv" href="#"
+            >Download CV</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <header class="sticky-header sticky top-0 z-40 border-b border-divider">
+      <div class="container flex items-center justify-between h-16 px-6">
+        <a href="#home" data-brand class="font-semibold text-lg">Mohamed Mohy</a>
+        <nav class="hidden md:flex items-center gap-1">
+          <a class="nav-link" data-nav="home" href="#home" data-i18n="navHome">Home</a>
+          <a class="nav-link" data-nav="about" href="#about" data-i18n="navAbout">About</a>
+          <a class="nav-link" data-nav="skills" href="#skills" data-i18n="navSkills">Skills</a>
+          <a class="nav-link" data-nav="experience" href="#experience" data-i18n="navExperience"
+            >Experience</a
+          >
+          <a class="nav-link" data-nav="projects" href="#projects" data-i18n="navProjects"
+            >Projects</a
+          >
+          <a class="nav-link" data-nav="contact" href="#contact" data-i18n="navContact"
+            >Contact</a
+          >
+        </nav>
+        <div class="hidden md:flex items-center gap-3">
+          <button class="text-accent font-semibold" data-lang-toggle>Arabic</button>
+          <button class="btn-icon" data-theme-toggle aria-label="Toggle theme"></button>
+          <a class="btn btn-accent" data-download-cv data-i18n="downloadCv" href="#">Download CV</a>
+        </div>
+        <button class="btn-icon md:hidden" id="menu-open" aria-label="Open menu">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 6h18"></path>
+            <path d="M3 12h18"></path>
+            <path d="M3 18h18"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section id="home" class="section-gap reveal">
+        <div class="container relative">
+          <div class="glow glow-one"></div>
+          <div class="glow glow-two"></div>
+          <div class="grid gap-10 md:grid-cols-[1.2fr_0.8fr] items-start">
+            <div class="flex flex-col gap-4 text-start">
+              <p
+                id="hero-title"
+                class="uppercase tracking-[0.2em] text-accent font-semibold text-sm"
+              >
+                Mobile Developer (Flutter)
+              </p>
+              <h1 id="hero-name" class="text-4xl md:text-5xl font-bold">Mohamed Mohy</h1>
+              <p id="hero-summary" class="text-muted leading-relaxed">
+                Professional Flutter developer with 4 years of experience building polished mobile
+                experiences using Firebase, REST APIs, and scalable state management.
+              </p>
+              <div class="flex items-center gap-2 text-subtle">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 21s-7-4.35-7-11a7 7 0 1 1 14 0c0 6.65-7 11-7 11z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <span id="hero-location">Cairo, Egypt</span>
+              </div>
+              <div class="flex flex-wrap gap-3 pt-2">
+                <a class="btn btn-accent" data-download-cv data-i18n="downloadCv" href="#"
+                  >Download CV</a
+                >
+                <a class="btn btn-outline" href="#projects" data-i18n="viewProjects">View Projects</a>
+                <a class="btn btn-link" href="#contact" data-i18n="contact">Contact</a>
+              </div>
+              <div class="flex flex-wrap gap-3 pt-2">
+                <a
+                  class="btn-icon"
+                  data-open-whatsapp
+                  data-i18n-title="whatsappTitle"
+                  href="https://wa.me/201015258644"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <img src="assets/images/whatsapp.png" alt="WhatsApp" class="w-5 h-5" />
+                </a>
+                <a
+                  class="btn-icon"
+                  data-open-github
+                  data-i18n-title="githubTitle"
+                  href="https://github.com/mmohy1999"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path
+                      d="M9 19c-4 1.5-4-2.5-6-3m12 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                    ></path>
+                  </svg>
+                </a>
+                <a
+                  class="btn-icon"
+                  data-open-email
+                  data-i18n-title="emailTitle"
+                  href="mailto:mohym65@gmail.com"
+                >
+                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                    <path d="M3 7l9 6 9-6"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div class="flex justify-center md:justify-end">
+              <div
+                class="border-2 border-[color:rgba(255,215,0,0.3)] rounded-3xl p-1 shadow-lg"
+              >
+                <img
+                  src="assets/images/profile.jpg"
+                  alt="Profile"
+                  class="rounded-[20px] w-[240px] h-[300px] object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section-gap reveal">
+        <div class="container flex flex-col gap-8">
+          <div class="text-start">
+            <h2 class="text-3xl md:text-4xl font-bold" data-i18n="aboutTitle">About</h2>
+            <p class="text-muted mt-3" data-i18n="aboutSubtitle">
+              A quick look at my background, education, and the values I bring to every project.
+            </p>
+          </div>
+          <p id="about-text" class="text-muted leading-relaxed text-start">
+            I am a professional Flutter developer focused on crafting reliable, responsive, and
+            user-friendly apps.
+          </p>
+          <div class="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+            <div class="hover-card card-pad text-start">
+              <h3 class="text-xl font-semibold" data-i18n="educationTitle">Education</h3>
+              <p id="education-institution" class="mt-3 font-semibold">Modern Academy in Maadi</p>
+              <p id="education-degree" class="text-muted mt-1">B.Sc. in Computer Science</p>
+              <p id="education-period" class="text-subtle text-sm mt-2">2018 - 2022</p>
+            </div>
+            <div class="hover-card card-pad text-start">
+              <h3 class="text-xl font-semibold" data-i18n="highlightsTitle">Highlights</h3>
+              <ul id="highlights-list" class="mt-4 flex flex-col gap-3"></ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="section-gap reveal">
+        <div class="container flex flex-col gap-8">
+          <div class="text-start">
+            <h2 class="text-3xl md:text-4xl font-bold" data-i18n="skillsTitle">Skills</h2>
+            <p class="text-muted mt-3" data-i18n="skillsSubtitle">
+              Tools, frameworks, and services I use to ship production-ready Flutter apps.
+            </p>
+          </div>
+          <div id="skills-grid" class="grid gap-6 md:grid-cols-2 lg:grid-cols-3"></div>
+        </div>
+      </section>
+
+      <section id="experience" class="section-gap reveal">
+        <div class="container flex flex-col gap-8">
+          <div class="text-start">
+            <h2 class="text-3xl md:text-4xl font-bold" data-i18n="experienceTitle">Experience</h2>
+            <p class="text-muted mt-3" data-i18n="experienceSubtitle">
+              Recent roles and the impact delivered in each position.
+            </p>
+          </div>
+          <div id="experience-list" class="flex flex-col gap-6"></div>
+        </div>
+      </section>
+
+      <section id="projects" class="section-gap reveal">
+        <div class="container flex flex-col gap-8">
+          <div class="text-start">
+            <h2 class="text-3xl md:text-4xl font-bold" data-i18n="projectsTitle">Projects</h2>
+            <p class="text-muted mt-3" data-i18n="projectsSubtitle">
+              Selected Flutter projects with space for cover images and in-app screenshots.
+            </p>
+          </div>
+          <div id="projects-grid" class="grid gap-6 md:grid-cols-2 lg:grid-cols-3"></div>
+        </div>
+      </section>
+
+      <section id="contact" class="section-gap reveal">
+        <div class="container flex flex-col gap-8">
+          <div class="text-start">
+            <h2 class="text-3xl md:text-4xl font-bold" data-i18n="contactTitle">Contact</h2>
+            <p class="text-muted mt-3" data-i18n="contactSubtitle">
+              Have a project in mind? Let's connect and build something great.
+            </p>
+          </div>
+          <div id="contact-grid" class="grid gap-6 md:grid-cols-2 lg:grid-cols-3"></div>
+        </div>
+      </section>
+    </main>
+   
+
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
