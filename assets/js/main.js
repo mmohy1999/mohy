@@ -278,22 +278,26 @@
     
     // Add filter buttons
     const projectsSection = document.getElementById("projects");
-    let filterTitle = projectsSection.querySelector(".filter-title");
-    let filterContainer = projectsSection.querySelector(".filter-container");
+    let filterTitle = projectsSection ? projectsSection.querySelector(".filter-title") : null;
+    let filterContainer = projectsSection ? projectsSection.querySelector(".filter-container") : null;
     
-    if (!filterContainer || !filterTitle) {
+    if (projectsSection && (!filterContainer || !filterTitle)) {
       const subtitle = projectsSection.querySelector(".text-muted");
       if (!filterTitle) {
         filterTitle = document.createElement("p");
         filterTitle.className = "filter-title text-sm font-semibold text-subtle mt-6";
         filterTitle.setAttribute("data-i18n", "categoryFilterTitle");
         filterTitle.textContent = strings.categoryFilterTitle;
-        subtitle.parentNode.insertBefore(filterTitle, subtitle.nextSibling);
+        if (subtitle && subtitle.parentNode) {
+          subtitle.parentNode.insertBefore(filterTitle, subtitle.nextSibling);
+        }
       }
       if (!filterContainer) {
         filterContainer = document.createElement("div");
         filterContainer.className = "filter-container flex flex-wrap gap-2 justify-center mt-3";
-        filterTitle.parentNode.insertBefore(filterContainer, filterTitle.nextSibling);
+        if (filterTitle && filterTitle.parentNode) {
+          filterTitle.parentNode.insertBefore(filterContainer, filterTitle.nextSibling);
+        }
       }
     }
     
@@ -302,21 +306,23 @@
     projects.forEach((p) => getProjectCategories(p).forEach((tag) => allTags.add(tag)));
     const tags = ["all", ...Array.from(allTags).sort()];
     
-    filterContainer.innerHTML = tags.map(tag => `
-      <button class="filter-btn ${state.currentFilter === tag ? 'active' : ''}" data-filter="${tag}">
-        ${tag === "all" ? (state.locale === "ar" ? "الكل" : "All") : tag}
-      </button>
-    `).join("");
+    if (filterContainer) {
+      filterContainer.innerHTML = tags.map(tag => `
+        <button class="filter-btn ${state.currentFilter === tag ? 'active' : ''}" data-filter="${tag}">
+          ${tag === "all" ? (state.locale === "ar" ? "الكل" : "All") : tag}
+        </button>
+      `).join("");
     
-    // Add filter event listeners
-    filterContainer.querySelectorAll(".filter-btn").forEach(btn => {
-      btn.addEventListener("click", () => {
-        state.currentFilter = btn.dataset.filter;
-        filterContainer.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        filterProjects();
+      // Add filter event listeners
+      filterContainer.querySelectorAll(".filter-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          state.currentFilter = btn.dataset.filter;
+          filterContainer.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+          filterProjects();
+        });
       });
-    });
+    }
     
     renderProjectCards(projects, strings);
   };
@@ -465,7 +471,12 @@
 
   const initReveal = () => {
     const revealEls = document.querySelectorAll(".reveal");
+    const isSmallScreen = window.matchMedia && window.matchMedia("(max-width: 768px)").matches;
     if (!("IntersectionObserver" in window)) {
+      revealEls.forEach((el) => el.classList.add("is-visible"));
+      return;
+    }
+    if (isSmallScreen) {
       revealEls.forEach((el) => el.classList.add("is-visible"));
       return;
     }
